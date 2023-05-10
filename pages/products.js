@@ -31,7 +31,7 @@ export default function Products() {
                 <td>{product?.title}</td>
                 <td>
                   <Link
-                    className="btn-default"
+                    className="button--primary"
                     href={`/products/edit/${product._id}`}
                   >
                     <svg
@@ -51,7 +51,7 @@ export default function Products() {
                     Edit
                   </Link>
                   <Link
-                    className="btn-red"
+                    className="button--red"
                     href={`/products/delete/${product._id}`}
                   >
                     <svg

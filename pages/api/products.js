@@ -17,25 +17,33 @@ export default async function handle(request, response) {
   }
 
   if (method === 'POST') {
-    const { title, description, price } = request.body;
+    const { title, description, price, images, category, properties } =
+      request.body;
     const productDoc = await Product.create({
       title,
       description,
       price,
+      images,
+      category,
+      properties,
     });
     response.json(productDoc);
   }
 
   if (method === 'PUT') {
-    const { title, description, price, _id } = request.body;
-    await Product.updateOne({ _id }, { title, description, price });
+    const { title, description, price, images, category, properties, _id } =
+      request.body;
+    await Product.updateOne(
+      { _id },
+      { title, description, price, images, category, properties }
+    );
     response.json(true);
   }
 
   if (method === 'DELETE') {
     if (request.query?.id) {
       await Product.deleteOne({ _id: request.query?.id });
-      response.json(true);
+      request.json(true);
     }
   }
 }

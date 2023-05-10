@@ -32,6 +32,9 @@ table.basic tr td {
 table.basic a {
   @apply px-4 rounded-sm inline-flex mx-1 items-center gap-1 text-sm py-1;
 }
-.button-primary {
+.button--primary {
   @apply bg-blue-900 text-white px-4 py-1 rounded-sm shadow-sm;
+}
+.button--red {
+  @apply bg-red-600 text-white px-4 py-1 rounded-sm shadow-sm;
 }
