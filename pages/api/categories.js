@@ -1,12 +1,12 @@
 import { getServerSession } from 'next-auth';
 import { Category } from '@/models/Category';
 import { mongooseConnect } from '@/lib/mongoose';
-// import { authOptions, isAdminRequest } from '@/pages/api/auth/[...nextauth]';
+import { authOptions, isAdminRequest } from '@/pages/api/auth/[...nextauth]';
 
 export default async function handle(request, response) {
   const { method } = request;
   await mongooseConnect();
-  // await isAdminRequest(request, response);
+  await isAdminRequest(request, response);
 
   if (method === 'GET') {
     response.json(await Category.find().populate('parent'));

@@ -144,16 +144,14 @@ export default function Categories({ swal }) {
                   value={property.name}
                   className="mb-0"
                   onChange={(ev) =>
-                    handlePropertyNameChange(index, property, ev.target.value)
-                  }
+                    handlePropertyNameChange(index, property, ev.target.value)}
                   placeholder="property name (example: color)"
                 />
                 <input
                   type="text"
                   className="mb-0"
                   onChange={(ev) =>
-                    handlePropertyValuesChange(index, property, ev.target.value)
-                  }
+                    handlePropertyValuesChange(index, property, ev.target.value)}
                   value={property.values}
                   placeholder="values, comma separated"
                 />
@@ -182,7 +180,7 @@ export default function Categories({ swal }) {
               Cancel
             </button>
           )}
-          <button type="submit" className="btn-primary py-1">
+          <button type="submit" className="button--primary py-1">
             Save
           </button>
         </div>

@@ -2,11 +2,13 @@
 /* eslint-disable import/no-unresolved */
 import { Product } from '@/models/Product';
 import { mongooseConnect } from '@/lib/mongoose';
+import { isAdminRequest } from '@/pages/api/auth/[...nextauth]';
 
 export default async function handle(request, response) {
   const { method } = request;
   // mongoose.connect(clientPromise.url);
   await mongooseConnect();
+  await isAdminRequest(request, response);
 
   if (method === 'GET') {
     if (request.query?.id) {
